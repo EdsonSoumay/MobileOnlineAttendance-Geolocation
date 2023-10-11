@@ -1,6 +1,6 @@
 import { StyleSheet, Modal, Button as ButtonNative,TouchableWithoutFeedback, Text, View, ScrollView, Dimensions, TouchableOpacity,BackHandler, Alert, PermissionsAndroid } from 'react-native'
 import React, {useEffect, useState, useContext,createContext } from 'react'
-import { backGroundColor, firstPageBorder, fontFamilyMedium, fontFamilyRegular , fontRegular, fontSizeBig, fontSizeMedium, fontSizeSmall, fontSubTitle, fontTitle, mainColor, secondColor, widthComponent } from '../utils'
+import { backGroundColor, blackColor, firstPageBorder, fontFamilyMedium, fontFamilyRegular , fontRegular, fontSizeBig, fontSizeMedium, fontSizeSmall, fontSubTitle, fontTitle, mainColor, placeholderColor, secondColor, widthComponent } from '../utils'
 import LinearGradient from 'react-native-linear-gradient'
 import Geolocation from 'react-native-geolocation-service';
 import SelectDropdown from 'react-native-select-dropdown';
@@ -42,7 +42,7 @@ const MyModal = (props) => {
             >
             <Gap height={20}/>
             <View>
-              <Text>select School Year</Text>
+              <Text style={{color:placeholderColor.color}}>select School Year</Text>
               <SelectDropdown
                    buttonStyle={{width:'100%'}}
                   data={listSchoolYear}
@@ -53,7 +53,7 @@ const MyModal = (props) => {
             </View>
             <Gap height={20}/>
             <View>
-              <Text>Select Semester</Text>
+              <Text style={{color:placeholderColor.color}}>Select Semester</Text>
               <SelectDropdown
                    buttonStyle={{width:'100%'}}
                   data={listSemester}
@@ -289,7 +289,7 @@ const HomeScreen = (props) => {
                       </View>
                       <View  style={{flexDirection:'row', flex: 1, alignItems:'center', justifyContent:'space-around'}}>
                           <View style={{flexDirection:'row',alignItems:'center'}}>
-                              <Text >{state?.userName}</Text>
+                              <Text style={{color:placeholderColor.color}}>{state?.userName}</Text>
                               <Gap width={10}/>
                               <View style={{height: 7, width: 7, borderRadius:3.4, backgroundColor: state?.status === 'true' ? '#3ACBA9' : '#D49FB9'}}></View>
                           </View>
@@ -322,7 +322,7 @@ const HomeScreen = (props) => {
             {/* [ styles.dateText, {fontFamily: fontFamilyRegular.fontFamily}] */}
             <View style={styles.Container2}>
                 <View>
-                  <Text style={styles.textScanQRCode}>Activate your location to record your attedance</Text>
+                  <Text style={styles.textAttendance}>Activate your location to record your attedance</Text>
                 </View>
                 <Gap height={22}/>
                 <View>
@@ -355,7 +355,7 @@ const HomeScreen = (props) => {
             
             <View style={styles.Container2}>
                 <View>
-                  <Text style={styles.textScanQRCode}>Create new Absension by Location</Text>
+                  <Text style={styles.textAttendance}>Create new Absension by Location</Text>
                 </View>
                 <Gap height={22}/>
                 <Button 
@@ -448,7 +448,7 @@ const styles = StyleSheet.create({
   },
   dummyImage:{width: 60, height: 60, borderRadius: 60},
   nameUserContainer:{flexDirection:'row', flex: 1,  alignItems:'center', justifyContent:'space-around', marginBottom:-2},
-  textUserContainer:{fontSize:fontSizeBig.fontSize, fontFamily:fontFamilyMedium.fontFamily, color:'#000000'},
+  textUserContainer:{fontSize:fontSizeBig.fontSize, fontFamily:fontFamilyMedium.fontFamily, color:blackColor.color},
   infoUserContainer: {flexDirection:'row', flex: 1, alignItems:'center', justifyContent:'space-around'},
   activeUserContainer:{height: 26, maxWidth: '50%', paddingVertical:4, backgroundColor: `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.05)`, borderRadius: 5 },
   textActiveUser:{fontFamily:fontFamilyMedium.fontFamily, color:'#3ACBA9', fontSize:fontSizeSmall.fontSize},
@@ -457,15 +457,15 @@ const styles = StyleSheet.create({
   buttonContainer:{backgroundColor:`rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 1)`, height: 39, borderRadius: 10, justifyContent:'center'},
   //body
   //part 1
-  textYourAttendance:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeMedium.fontSize, color:'#000000'},
+  textYourAttendance:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeMedium.fontSize, color:blackColor.color},
   Container2:{paddingHorizontal: 45, paddingVertical: 23, backgroundColor:secondColor.color, borderWidth: 1, borderColor: `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.30)`, borderRadius:10},
-  textScanQRCode:{fontFamily:fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:'#000000'},
+  textAttendance:{fontFamily:fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:blackColor.color},
   //part2
-  textLeadInWorship:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeMedium.fontSize, color:'#000000'},
+  textLeadInWorship:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeMedium.fontSize, color:blackColor.color},
   containerLeadInWorship:{paddingHorizontal: 45, paddingVertical: 23,  backgroundColor:secondColor.color, borderWidth: 1, borderColor: `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.30)`, borderRadius:10},
   containerLeadInWorship2:{borderWidth: 1, borderColor:'#F0F1F3', height:53, borderRadius: 10, paddingHorizontal: 19, paddingVertical:8},
-  textLeadInWorship2:{fontFamily:fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:'#000000'},
-  textLeadInWorship3:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize, color:'#000000'},
+  textLeadInWorship2:{fontFamily:fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:blackColor.color},
+  textLeadInWorship3:{fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize, color:blackColor.color},
   flashContainer: {
     // padding: 20,
     backgroundColor: 'lightgrey',
@@ -475,5 +475,6 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
+    color: placeholderColor.color
   },
 })

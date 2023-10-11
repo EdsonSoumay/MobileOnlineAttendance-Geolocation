@@ -1,7 +1,7 @@
 import { StyleSheet, RefreshControl, Text, View,Dimensions ,ScrollView, BackHandler, Alert} from 'react-native'
 import React,{useEffect, useState} from 'react'
 import { Gap, Button } from '../components'
-import { backGroundColor, fontSizeSmall, fontFamilyRegular, mainColor, fontFamilyMedium, fontFamilySemiBold, fontSizeBig, secondColor } from '../utils'
+import { backGroundColor, fontSizeSmall, fontFamilyRegular, mainColor, fontFamilyMedium, fontFamilySemiBold, fontSizeBig, secondColor, blackColor } from '../utils'
 import { Excuse, Late, NotPresent, OnTime } from '../assets/ilustration'
 import { useMyContext } from '../Context'
 import { GetUserAttendanceHistoryRequest } from '../request'
@@ -11,16 +11,13 @@ const windowWidth = Dimensions.get('window').width * 0.833;
 
 const AttendanceHistoryScreen = (props) => {
   const { state, CurrentSemesterContext } = useMyContext();
-  console.log("CurrentSemesterContext:",CurrentSemesterContext)
   const [OnTimeData, setOnTimeData] = useState()
   const [ExcuseData, setExcuseData] = useState()
   const [LateData, setLateData] = useState()
   const [NotPresentData, setNotPresentData] = useState()
   const [History, setHistory] = useState()
- 
   const [refreshing, setRefreshing] = React.useState(false);
 
-  console.log("history:",History)
   useEffect( () => {
       getAPI()
   }, [])
@@ -62,7 +59,7 @@ const AttendanceHistoryScreen = (props) => {
               <OnTime/>
               </View>
               <Text style={{color:'#9FA4AB', fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize}}>Arrive On time</Text>
-              <Text style={{color:'#000000',  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{OnTimeData}</Text>
+              <Text style={{color:blackColor.color,  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{OnTimeData}</Text>
            </View>
            <Gap width={20}/>
            <View style={{height: 123, width:115, justifyContent:'space-between' ,backgroundColor:'#FCFCFC', padding: 14, borderRadius: 10}}>
@@ -70,7 +67,7 @@ const AttendanceHistoryScreen = (props) => {
                 <Late/>
               </View>
               <Text style={{color:'#9FA4AB', fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize}}>Arrive In late</Text>
-              <Text style={{color:'#000000',  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{LateData}</Text>
+              <Text style={{color:blackColor.color,  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{LateData}</Text>
            </View>
            <Gap width={20}/>
            <View style={{height: 123, width:115, justifyContent:'space-between' ,backgroundColor:'#FCFCFC', padding: 14, borderRadius: 10}}>
@@ -78,7 +75,7 @@ const AttendanceHistoryScreen = (props) => {
                 <NotPresent/>
               </View>
               <Text style={{color:'#9FA4AB', fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize}}>Not Present</Text>
-              <Text style={{color:'#000000',  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{NotPresentData}</Text>
+              <Text style={{color:blackColor.color,  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{NotPresentData}</Text>
            </View>
            <Gap width={20}/>
            <View style={{height: 123, width:115, justifyContent:'space-between', backgroundColor:'#FCFCFC', padding: 14, borderRadius: 10}}>
@@ -86,7 +83,7 @@ const AttendanceHistoryScreen = (props) => {
                 <Excuse/>
               </View>
               <Text style={{color:'#9FA4AB', fontFamily:fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize}}>Excuse</Text>
-              <Text style={{color:'#000000',  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{ExcuseData}</Text>
+              <Text style={{color:blackColor.color,  fontFamily:fontFamilySemiBold.fontFamily, fontSize: fontSizeBig.fontSize}}>{ExcuseData}</Text>
            </View>
         </ScrollView>
       </View>
@@ -102,7 +99,7 @@ const AttendanceHistoryScreen = (props) => {
                       textAlign ='center'
                     />
           </View> 
-      <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeBig.fontSize, color:'#000000'}}>Attendance History</Text>
+      <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeBig.fontSize, color:blackColor.color}}>Attendance History</Text>
     </View>
 
     {/* Attendance History */}
@@ -140,13 +137,13 @@ const AttendanceHistoryScreen = (props) => {
                   <Gap width={13}/>
                   <View>
                     <View>
-                        <Text style={{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize,  color:'#000000'}}>{
+                        <Text style={{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeSmall.fontSize,  color:blackColor.color}}>{
                         e.userAttendance[0] ? e.userAttendance[0].presence.split("_")[0]
                         : 'absen'
                         }</Text>
                     </View>
                     <View>
-                        <Text style={{fontFamily: fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize,  color:'#000000'}}>{e.absenDateString}, {e.absenTimeString}</Text>
+                        <Text style={{fontFamily: fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize,  color:blackColor.color}}>{e.absenDateString}, {e.absenTimeString}</Text>
                     </View>
                   </View>
                 </View>

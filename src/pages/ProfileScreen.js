@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity, Text, View, ScrollView, Alert } from 'rea
 import React,{useState} from 'react'
 import { ArrowLeftIcon } from '../assets/icon'
 import { Gap, Button, Input } from '../components'
-import { fontFamilyMedium, fontSizeMedium, mainColor, fontSizeSmall, mainBorderColor, fontFamilyRegular } from '../utils'
+import { fontFamilyMedium, fontSizeMedium, mainColor, fontSizeSmall, mainBorderColor, fontFamilyRegular, placeholderColor, blackColor } from '../utils'
 import { useTheme } from 'react-native-paper';
 import SelectDropdown from 'react-native-select-dropdown';
 import { useMyContext } from '../Context';
@@ -159,7 +159,7 @@ const updateSecureReNewPasswordEntry = () => {
               <ArrowLeftIcon/>
           </TouchableOpacity>
           <View>
-          <Text style={{fontFamily:fontFamilyMedium.fontFamily, color:'black', fontSize: fontSizeMedium.fontSize}}>Profile</Text>
+          <Text style={{fontFamily:fontFamilyMedium.fontFamily, color:blackColor.color, fontSize: fontSizeMedium.fontSize}}>Profile</Text>
           </View>
       <View>
         {/* ini view bayangan */}
@@ -173,7 +173,7 @@ const updateSecureReNewPasswordEntry = () => {
                 backgroundColor: ActiveScreen == true? `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 1)`: "white", 
                 height: '100%', width:'50%', justifyContent:'center', flexDirection:'row', alignItems:'center'}}>
                 <Text style={{fontFamily:fontFamilyMedium.fontFamily, 
-                  color: ActiveScreen == true? 'white': 'black',
+                  color: ActiveScreen == true? 'white': blackColor.color,
                    fontSize: fontSizeSmall.fontSize}}>View Profile</Text>
               </TouchableOpacity>
               <TouchableOpacity 
@@ -182,7 +182,7 @@ const updateSecureReNewPasswordEntry = () => {
                 backgroundColor: ActiveScreen == false? `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 1)`: "white", 
                 height: '100%', width:'50%', justifyContent:'center', flexDirection:'row', alignItems:'center'}}>
                 <Text style={{fontFamily:fontFamilyMedium.fontFamily, 
-                  color: ActiveScreen == false? 'white': 'black',
+                  color: ActiveScreen == false? 'white': blackColor.color,
                    fontSize: fontSizeSmall.fontSize}}>Edit Profile</Text>
               </TouchableOpacity>
       </View>
@@ -204,8 +204,8 @@ const updateSecureReNewPasswordEntry = () => {
             :
             <>
             <Text style={styles.styleText}>First Name</Text>
-            <View style={[styles.styleView,{height:51,  }]}>
-            <Text style={{color:'#000000'}}>{state?.firstName}</Text>
+            <View style={[styles.styleView,{height:42,  }]}>
+            <Text style={{color:blackColor.color}}>{state?.firstName}</Text>
             </View>
             </>
         }
@@ -226,8 +226,8 @@ const updateSecureReNewPasswordEntry = () => {
                 :
                 <>
                 <Text style={styles.styleText}>Last Name</Text>
-                <View style={[styles.styleView,{height:51,  }]}>
-                <Text style={{color:'#000000'}}>{state?.lastName}</Text>
+                <View style={[styles.styleView,{height:42,  }]}>
+                <Text style={{color:blackColor.color}}>{state?.lastName}</Text>
                 </View>
                 </>
           }
@@ -248,8 +248,8 @@ const updateSecureReNewPasswordEntry = () => {
                 :
                 <>
                 <Text style={styles.styleText}>Email</Text>
-                <View style={[styles.styleView,{height:51,  }]}>
-                <Text style={{color:'#000000'}}>{state?.email}</Text>
+                <View style={[styles.styleView,{height:42,  }]}>
+                <Text style={{color:blackColor.color}}>{state?.email}</Text>
                 </View>
                 </>
             }
@@ -357,7 +357,7 @@ const updateSecureReNewPasswordEntry = () => {
 export default ProfileScreen
 
 const styles = StyleSheet.create({
-  styleText:{fontFamily: fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:'#000000'},
+  styleText:{fontFamily: fontFamilyRegular.fontFamily, fontSize: fontSizeSmall.fontSize, color:blackColor.color},
   styleView:{ width: '100%',borderWidth: 1, borderBottomColor: '#173C90', borderRadius:14, borderColor:mainBorderColor.color, flexDirection:'row', alignItems:'center', justifyContent:'space-between', paddingHorizontal:10},
   buttonContainer:{backgroundColor:`rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 1)`, width:'50%', height: 40, borderRadius: 10, justifyContent:'center'},
   flashContainer: {
@@ -370,5 +370,6 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
+    color: placeholderColor.color
   },
 })

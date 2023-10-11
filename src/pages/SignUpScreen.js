@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
 import {Button, Gap, Input} from '../components';
-import { backGroundColor, fontFamilyMedium, fontSizeBig, mainBorder, secondColor } from '../utils';
+import { backGroundColor, blackColor, fontFamilyMedium, fontSizeBig, mainBorder, placeholderColor, secondColor } from '../utils';
 import { useTheme } from 'react-native-paper';
 import { HideIcon, ShowIcon } from '../assets/icon';
 import {mainColor} from '../utils';
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: mainBorder.borderRadius,
   },
-  styleText:{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeBig.fontSize, color:'#000000'},
+  styleText:{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeBig.fontSize, color:blackColor.color},
   styleView:{width: windowWidth,borderWidth: 1, borderBottomColor: '#173C90', borderTopWidth: 0, borderRightWidth: 0, borderLeftWidth: 0, flexDirection:'row', alignItems:'center', justifyContent:'space-between'},
   flashContainer: {
     // padding: 20,
@@ -273,6 +273,6 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
-    // color:'red'
+    color: placeholderColor.color
   },
 });

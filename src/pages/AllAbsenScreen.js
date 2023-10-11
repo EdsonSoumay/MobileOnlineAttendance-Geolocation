@@ -2,18 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { View, Text,Modal, StyleSheet, TouchableWithoutFeedback , RefreshControl} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Gap, Button } from '../components';
-import { fontFamilyRegular,fontSizeSmall,  mainColor} from '../utils'
+import { fontFamilyRegular,fontSizeSmall,  mainColor, placeholderColor} from '../utils'
 import SelectDropdown from 'react-native-select-dropdown';
 import { useMyContext } from '../Context';
 import { GetUserAllAbsenceRequest, UpdateUserAbsenceRequest } from '../request';
 
 const listPresence = ["absen", "late", "ontime", "excuse"]
-
 const MyModal = (props) => {
-  const { 
-    modalVisible, setModalVisible, selectedItem, setSelectedItem, TableBody,  editAbsen,
-    TableHeader
-  }= props
+  const { modalVisible, setModalVisible, selectedItem, setSelectedItem, TableBody,  editAbsen, TableHeader }= props
 
   return (
     <View>
@@ -33,7 +29,7 @@ const MyModal = (props) => {
           <View style={{ backgroundColor: "white",borderRadius: 10 }}>
             <View >
             <View>
-              <Text>select Member</Text>
+              <Text style={{color:placeholderColor.color}} >select Member</Text>
               <SelectDropdown
                    buttonStyle={{width:'100%'}}
                   data={TableBody?.map(header => header[0]?.userName? `${header[0]?.userName}` : '-')}
@@ -44,7 +40,7 @@ const MyModal = (props) => {
             </View>
             <Gap height={20}/>
             <View>
-              <Text>select Date</Text>
+              <Text style={{color:placeholderColor.color}}>select Date</Text>
                 <SelectDropdown
                    buttonStyle={{width:'100%'}}
                     dropdownStyle={{ width: '100%', justifyContent:'center' }}
@@ -54,10 +50,9 @@ const MyModal = (props) => {
                       }}
                     />
             </View>
-
             <Gap height={20}/>
             <View>
-              <Text>select Presense</Text>
+              <Text style={{color:placeholderColor.color}}>select Presence</Text>
               <SelectDropdown
                    buttonStyle={{width:'100%'}}
                   data={listPresence}
@@ -283,6 +278,7 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
+    color: placeholderColor.color
   },
 });
 

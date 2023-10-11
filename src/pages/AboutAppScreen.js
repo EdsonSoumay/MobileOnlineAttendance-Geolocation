@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, ScrollView, Linking } from 'react-native'
 import React,{useState} from 'react'
-import {fontFamilyMedium, fontFamilyLight, fontFamilyRegular, fontSizeMedium, fontSizeSmall, mainColor, fontSizeExtraSmall, fontFamilySemiBold } from '../utils'
+import {fontFamilyMedium, fontFamilyLight, fontFamilyRegular, fontSizeMedium, fontSizeSmall, mainColor, fontSizeExtraSmall, fontFamilySemiBold, blackColor, placeholderColor } from '../utils'
 import  { ArrowLeftIcon, InstagramIcon } from '../assets/icon'
 import { Button, Gap } from '../components'
 
@@ -39,7 +39,7 @@ const AboutAppScreen = (props) => {
           <TouchableOpacity onPress={()=>props.navigation.goBack()}>
               <ArrowLeftIcon/>
           </TouchableOpacity>
-        <Text style={{fontFamily:fontFamilySemiBold.fontFamily, color:'#000000', fontSize:17}}>About App</Text>
+        <Text style={{fontFamily:fontFamilySemiBold.fontFamily, color:blackColor.color, fontSize:17}}>About App</Text>
           <View>
             {/* view bayangan */}
           </View>
@@ -48,18 +48,18 @@ const AboutAppScreen = (props) => {
         <ScrollView>
 
         <View style={{flexDirection:'row', alignItems:'center'}}>
-          <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:'#000000'}}>VOCSAbsension</Text>
+          <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:blackColor.color}}>VOCSAbsension</Text>
             <Gap width={15}/>
-          <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize}}>V 1.0.1</Text>
+          <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize, color: placeholderColor.color}}>V 1.0.1</Text>
         </View>
         <Gap height={20}/>
         <View>
-          <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:'#000000'}}>About Developer</Text>
+          <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:blackColor.color}}>About Developer</Text>
           <Gap height={10}/>
           <View style={{flexDirection:'row', justifyContent:'space-between'}}>
             <View>
-              <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:'#000000', marginBottom: -6}}>Edson R. S</Text>
-              <Text style={{fontFamily:fontFamilyLight.fontFamily, fontSize:fontSizeExtraSmall.fontSize}} >Web/Mobile App Developer - VOCS Alumni 2022</Text>
+              <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:blackColor.color, marginBottom: -6}}>Edson R. S</Text>
+              <Text style={{fontFamily:fontFamilyLight.fontFamily, fontSize:fontSizeExtraSmall.fontSize, color: placeholderColor.color}} >Web/Mobile App Developer - VOCS Alumni 2022</Text>
             </View>
             <View>
               <TouchableOpacity onPress={handleInstagram}>
@@ -70,7 +70,7 @@ const AboutAppScreen = (props) => {
         </View>
         <Gap height={30}/>
         <View>
-           <Text style={{fontFamily:fontFamilyLight.fontFamily, fontSize:fontSizeSmall.fontSize}} >
+           <Text style={{fontFamily:fontFamilyLight.fontFamily, fontSize:fontSizeSmall.fontSize, color: placeholderColor.color}}>
             Kalo dapa bug atau ada saran, kalo mau bku bantu kembangkan ini app atau mau depe code, hubungi pa kta
           </Text>
           <Gap height={10}/>

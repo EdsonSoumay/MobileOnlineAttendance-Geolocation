@@ -31,7 +31,7 @@ function MyProvider({ children }) {
     setTimeout(() => {
       setIsVisible(false);
       setMessage(null);
-    }, 3000);
+    }, 6000);
   };
 
   return (

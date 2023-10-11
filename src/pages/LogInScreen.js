@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { StyleSheet, Text, View, Dimensions, ScrollView,  TouchableOpacity, Platform, StatusBar, Alert, BackHandler } from 'react-native'
 import { Button, Gap, Input } from '../components'
-import { backGroundColor, blackColor, fontFamilyMedium, fontFamilyRegular, fontSizeBig, fontSizeExtraSmall, fontSizeSmall, mainBorder, secondColor } from '../utils'
+import { backGroundColor, blackColor, fontFamilyMedium, fontFamilyRegular, fontSizeBig, fontSizeExtraSmall, fontSizeSmall, mainBorder, placeholderColor, secondColor } from '../utils'
 import LinearGradient from 'react-native-linear-gradient'
 import { mainColor } from '../utils'
 import { useTheme } from 'react-native-paper';
@@ -188,11 +188,11 @@ const { message, isVisible } = useMyContext();
         </LinearGradient>
       </View>
         <View>
-            <Text>{Loading == true?'loading':null}</Text>
+            <Text style={{color: placeholderColor.color}}>{Loading == true?'loading':null}</Text>
         </View>
       <Gap height={29}/>
     <View style={{flexDirection:'row', justifyContent:'center'}}>
-        <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize}}>Don’t have an account ?</Text>
+        <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize, color: placeholderColor.color}}>Don’t have an account ?</Text>
         <Gap width={7}/>
         <TouchableOpacity  onPress={()=>props.navigation.navigate('SignUpScreen')}>
             <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeSmall.fontSize, color:'#173C90'}}>Create new account</Text>
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     borderRadius: mainBorder.borderRadius,
   },
 
-  styleText:{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeBig.fontSize, color:'#000000'},
+  styleText:{fontFamily: fontFamilyMedium.fontFamily, fontSize: fontSizeBig.fontSize, color:blackColor.color},
   styleView:{width: windowWidth,borderWidth: 1, borderBottomColor: '#173C90', borderTopWidth: 0, borderRightWidth: 0, borderLeftWidth: 0, flexDirection:'row', alignItems:'center', justifyContent:'space-between'},
   flashContainer: {
     // padding: 20,
@@ -226,5 +226,6 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
-  },
+    color: placeholderColor.color
+  }
 })

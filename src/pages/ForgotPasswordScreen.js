@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Dimensions, ScrollView, Alert } from 'react-native';
 import React, {useState} from 'react';
 import {Button, Gap, Input} from '../components';
-import { backGroundColor, fontFamilyMedium, fontSizeBig, mainBorder, secondColor } from '../utils';
+import { backGroundColor, fontFamilyMedium, fontSizeBig, mainBorder, placeholderColor, secondColor } from '../utils';
 import LinearGradient from 'react-native-linear-gradient';
 import {mainColor} from '../utils';
 import { useTheme } from 'react-native-paper';
@@ -306,9 +306,9 @@ const compareToken = () =>{
                 {   
                     data.re_password == '' ?null
                     :data.isValidRePassword == true?
-                    <Text>Password is match</Text>
+                    <Text style={{color:placeholderColor.color}}>Password is match</Text>
                     :
-                    <Text>Password is not match</Text>
+                    <Text style={{color:placeholderColor.color}}>Password is not match</Text>
                 }
                 </View>
             </>
@@ -385,5 +385,6 @@ const styles = StyleSheet.create({
   flashMessage: {
     fontSize: 18,
     textAlign: 'center',
+    color: placeholderColor.color
   },
 });
