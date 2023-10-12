@@ -4,7 +4,7 @@ import MapView, { Marker, PROVIDER_GOOGLE, Circle, Callout } from 'react-native-
 // import Geolocation from 'react-native-geolocation-service';
 import SelectDropdown from 'react-native-select-dropdown';
 import { Button, Gap } from '../components';
-import { fontFamilyMedium, fontSizeMedium, mainColor } from '../utils';
+import { blackColor, fontFamilyMedium, fontFamilySemiBold, fontSizeMedium, mainColor, placeholderColor } from '../utils';
 import { useMyContext } from '../Context';
 import { DeactivatedAbsenRequest, GetAbsenceByAttendanceRequest, PostAbsenRequest } from '../request';
 import { fontSizeSmall, fontFamilyRegular } from '../utils';
@@ -24,6 +24,7 @@ const MapScreen = ({navigation, route}) => {
   const [radius, setRadius] = useState(route.params ? route.params.value.radius: 5)
   const [lateTolerance, setLateTolerance] = useState(route.params ? route.params.value.lateTolerance:10)
   const [users, setUsers] = useState([])
+  const [ShowMember, setShowMember] = useState(false)
   const { showFlash, state, CurrentSemesterContext, isVisible, message} = useMyContext();
   // const [isRefreshing, setIsRefreshing] = useState(false);
 
@@ -155,6 +156,7 @@ const MapScreen = ({navigation, route}) => {
 
     {/* users location */}
       {users.map((user) => {
+        console.log("user:",user)
         if(user.latitude && user.longitude){
           return (
             <Marker
@@ -167,8 +169,8 @@ const MapScreen = ({navigation, route}) => {
             >
               <Callout>
                 <View>
-                  <Text>Name: {user.userId.firstName} {user.userId.lastName}</Text>
-                  <Text style={{width:120}}>Status:{user.presence}</Text>
+                  <Text style={{color:placeholderColor.color}}>Name: {user.userId.firstName} {user.userId.lastName} ({user.userId.userName}) </Text>
+                  <Text style={{width:120, color: placeholderColor.color}}>Status:{user.presence}</Text>
                 </View>
               </Callout>
             </Marker>
@@ -216,6 +218,10 @@ const MapScreen = ({navigation, route}) => {
           disabled={ route.params ? true : false}
         />
       </View>
+      <Gap width={5}/>
+      <View>
+        <Text style={styles.styleText}>Meter</Text>
+      </View>
     </View>
     <View style={styles.lateTolerance}>
           <View>
@@ -234,35 +240,47 @@ const MapScreen = ({navigation, route}) => {
           disabled={ route.params ? true : false}
         />
       </View>
+      <Gap width={5}/>
+      <View>
+        <Text style={styles.styleText}>Minutes</Text>
+      </View>
     </View>
-    <ScrollView style={styles.userList}
-      refreshControl={
-        <RefreshControl
-          refreshing={false}
-          onRefresh={onRefresh}
-          tintColor="#FF0000" // Warna indikator loading (spinner)
-          title="Memuat ulang..." // Teks yang ditampilkan saat proses refresh
-          titleColor="#000000" // Warna teks yang ditampilkan saat proses refresh
-        />
-      }>
-         <Text>Member inside Zone:</Text>
-         {users.map((user) => (
-          
-           <View key={user._id} style={{display:'flex', flexDirection:'row'}}>
-          {
-            user.presence === "ontime" || user.presence === "late" ?
-            <>
-            <Text>{user.userId.firstName} {user.userId.lastName}</Text>
+    <TouchableOpacity onPress={()=>setShowMember(!ShowMember)} style={styles.containerMemberInsideZone}>
+    <Text style={{color:blackColor.color}}>Member inside Zone:</Text>
+    </TouchableOpacity>
+    <>
+    {
+        ShowMember &&
+        <ScrollView style={styles.userList}
+        refreshControl={
+          <RefreshControl
+            refreshing={false}
+            onRefresh={onRefresh}
+            tintColor="#FF0000" // Warna indikator loading (spinner)
+            title="Memuat ulang..." // Teks yang ditampilkan saat proses refresh
+            titleColor="#000000" // Warna teks yang ditampilkan saat proses refresh
+          />
+        }>
+          {users.map((user) => (
+            
+            <View key={user._id} style={{display:'flex', flexDirection:'row'}}>
             {
-              ( !user.longitude || !user.latitude ) ? <Text> - manual absence</Text> : null
+              user.presence === "ontime" || user.presence === "late" ?
+              <>
+              <Text style={{color:blackColor.color}}>{user.userId.firstName|| "-"} {user.userId.lastName || "-"} ({user.userId.userName}) </Text>
+              {
+                ( !user.longitude || !user.latitude ) ? <Text style={{fontFamily: fontFamilySemiBold.fontFamily, color: 'red'}}> - Manual Presence</Text> : null
+              }
+              </>
+              :
+              null
             }
-            </>
-            :
-            null
-          }
-          </View>
-        ))}
+            </View>
+          ))}
       </ScrollView>
+    }
+    </>
+
       <View style={styles.zoomButtons}>
         <TouchableOpacity onPress={handleZoomIn} style={styles.button}>
           <Text>Zoom In</Text>
@@ -299,13 +317,19 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     alignItems: 'center',
   },
+  containerMemberInsideZone:{
+    position: 'absolute',
+    top: '2%',
+    left: '2%',
+  },
   userList: {
     position: 'absolute',
-    top: 16,
-    left: 16,
+    top: '7%',
+    left: '2%',
     backgroundColor: 'white',
-    padding: 8,
+    // padding: 8,
     borderRadius: 8,
+    maxHeight:"98%"
   },
   clickedCoordinate: {
     position: 'absolute',
@@ -327,7 +351,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'center', 
     alignItems:'center',
-    top: '15%',
+    top: '10%',
     right: '2%',
     position: 'absolute',
   },
