@@ -189,7 +189,7 @@ const { message, isVisible } = useMyContext();
         </LinearGradient>
       </View>
         <View>
-            <Text style={{color: placeholderColor.color}}>{Loading == true?'loading':null}</Text>
+            <Text style={{color: placeholderColor.color}}>{Loading == true?'Loading':null}</Text>
         </View>
       <Gap height={29}/>
     <View style={{flexDirection:'row', justifyContent:'center'}}>

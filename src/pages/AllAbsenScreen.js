@@ -152,7 +152,7 @@ const AllAbsenScreen = () => {
     <View style={styles.tableContainer}>
       <View style={styles.tableHead}>
          <View style={styles.tableHeadCell}>
-            <Text style={[styles.tableHeadText, {width:20}]}>No</Text>
+            <Text style={[styles.tableHeadText, {width:25}]}>No</Text>
           </View>
           <View style={[styles.tableHeadCell,{width:150}]}>
             <Text style={styles.tableHeadText}>User Name</Text>
@@ -181,7 +181,7 @@ const AllAbsenScreen = () => {
           TableBody.map((row, index) =>{
             return (
                <View key={index} style={styles.tableRow}>
-                  <View style={{ flexDirection:'row', justifyContent:'center', alignItems:'center', paddingHorizontal:15.5 , borderRightWidth:1,  borderRightColor:'#eee'}} >
+                  <View style={{ flexDirection:'row', justifyContent:'center', width:45, alignItems:'center' , borderRightWidth:1,  borderRightColor:'#eee'}} >
                     <Text style={styles.tableCellText}>{index + 1}</Text>
                   </View>
                   <View style={[styles.tableCell,{ maxWidth:150, paddingVertical:10}]}>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { blackColor, mainColor } from '../utils'
 import LinearGradient from 'react-native-linear-gradient'
-import { VOCSLogo } from '../assets/logo'
+import { NewVOCSLogo } from '../assets/logo'
 import { Gap } from '../components'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -13,7 +13,6 @@ const SplashScreen = (props) => {
     getData()
   }, [])
   
-
   const getData = async () => {
     try {
       const jsonValue = await AsyncStorage.getItem('userSession')
@@ -32,17 +31,15 @@ const SplashScreen = (props) => {
     }
   }
   
-
   return (
     // <LinearGradient  colors={[styles.containerHeader.startGradient,styles.containerHeader.endGradient]} style={styles.containerHeader}>
     <LinearGradient  colors={[styles.containerHeader.startGradient, styles.containerHeader.endGradient]} style={styles.containerHeader}>
         <View style={{alignItems:'center'}}>
-          <VOCSLogo/>
+          <NewVOCSLogo/>
           <Gap height={5}/>
           <Text style={{fontFamily:'times-new-roman', fontSize: 15, color:blackColor.color}}>Voice Of Computer Science</Text>
         </View>
     </LinearGradient>
-
   )
 }
 
@@ -56,6 +53,5 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent:'center',
       alignItems:'center'
-  
     },
 })

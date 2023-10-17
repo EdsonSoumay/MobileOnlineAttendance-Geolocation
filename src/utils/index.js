@@ -1,5 +1,6 @@
 //color
-export const mainColor = { r: 23, g: 60, b: 144, a: 1 }
+// export const mainColor = { r: 23, g: 60, b: 144, a: 1 }//old
+export const mainColor = { r: 31, g: 103, b: 175, a: 1 }
 
 export const backGroundColor = {
    color: `rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.02)`
