@@ -77,6 +77,7 @@ export const idCurrentSemester = "63aa8e7961f2f36c83d03190"
 
 
 //url
-export const urlServer = '//192.168.1.9:3000'
-export const urlEndpointAPI = `http:${urlServer}/user/api/v1`
+// export const urlServer = '//192.168.1.9:3000'
+export const urlEndpointAPI = 'https://server-online-attendance-geolocation.vercel.app/user/api/v1'
+// export const urlEndpointAPI = `http:${urlServer}/user/api/v1`
 

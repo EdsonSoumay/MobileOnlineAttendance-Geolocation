@@ -86,6 +86,7 @@ const { message, isVisible } = useMyContext();
     let responseLogin = '' 
          await LogInRequest(userLogin)
             .then(function (response) {
+                // console.log("response login:",response)
                 responseLogin = response.data.message
                 userLogin.role = response.data.role !== undefined ? response.data.role : '-'
                 userLogin.status = response.data.status 

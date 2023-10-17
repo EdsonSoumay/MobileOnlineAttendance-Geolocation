@@ -14,8 +14,8 @@ const minutes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
 
 const MapScreen = ({navigation, route}) => {
   const [region, setRegion] = useState({
-    latitude: route.params ? route.params.value.latitude : -3.6636832 ,
-    longitude: route.params ? route.params.value.longitude : 128.1616343,
+    latitude: route.params ? route.params.value.latitude : 1.417385,
+    longitude: route.params ? route.params.value.longitude : 124.982486,
     latitudeDelta: 0.0007,
     longitudeDelta: 0.0007,
   });

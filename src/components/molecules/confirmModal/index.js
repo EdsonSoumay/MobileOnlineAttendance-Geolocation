@@ -80,16 +80,16 @@ const ConfirmModal = (props) => {
           <Button 
                 styleContainer={styles.buttonContainer} 
                 onPress={()=>{
-                  // if(dataPassword.password == state.password){
-                  //   if(type === 'delete'){
+                  if(dataPassword.password == state.password){
+                    if(type === 'delete'){
                       // kondisi untuk delete absen
                       action(id);
                       setModalVisible(false)
                       setDataPassword({
                         dataPassword:''
                     });
-                    // return null;
-                    // }
+                    return null;
+                    }
                     //kondisi untuk crate absen
                     action();
                     setModalVisible(false)
@@ -97,9 +97,9 @@ const ConfirmModal = (props) => {
                       dataPassword:''
                   });
                   return null;
-                // }else{
-                //       showFlash('wrong password');
-                //     }
+                }else{
+                      showFlash('wrong password');
+                    }
                   }
                 } 
                 name = 'Confirmation' 
