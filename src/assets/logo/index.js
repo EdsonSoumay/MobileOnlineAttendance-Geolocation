@@ -1,4 +1,4 @@
-import NewVOCSLogo from './new_VOCS.svg'
-import NewVOCSLogoSmall from './new_VOCS_small.svg'
+import VOCSLogo from './VOCS.svg'
+import VOCSLogoSmall from './VOCS_small.svg'
 
-export { NewVOCSLogo, NewVOCSLogoSmall}
+export { VOCSLogo, VOCSLogoSmall}

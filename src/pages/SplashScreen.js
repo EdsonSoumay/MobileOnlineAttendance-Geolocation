@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { blackColor, mainColor } from '../utils'
 import LinearGradient from 'react-native-linear-gradient'
-import { NewVOCSLogo } from '../assets/logo'
+import { VOCSLogo } from '../assets/logo'
 import { Gap } from '../components'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -35,7 +35,7 @@ const SplashScreen = (props) => {
     // <LinearGradient  colors={[styles.containerHeader.startGradient,styles.containerHeader.endGradient]} style={styles.containerHeader}>
     <LinearGradient  colors={[styles.containerHeader.startGradient, styles.containerHeader.endGradient]} style={styles.containerHeader}>
         <View style={{alignItems:'center'}}>
-          <NewVOCSLogo/>
+          <VOCSLogo/>
           <Gap height={5}/>
           <Text style={{fontFamily:'times-new-roman', fontSize: 15, color:blackColor.color}}>Voice Of Computer Science</Text>
         </View>
