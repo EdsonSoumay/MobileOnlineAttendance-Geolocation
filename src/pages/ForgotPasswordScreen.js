@@ -80,32 +80,36 @@ const updateSecureTextEntryRePassword = () => {
 }
 
   const submitHandle = async ()=>{
-      let userLogin ={userName: data.username, email: data.email, password: data.password}
-      let responseLogin = '' 
-      await ForgotPasswordRequest(userLogin)
-            .then(function (response) {
-                responseLogin = response.data.message
-                showFlash(response.data.message);
-            })
-            .catch(function (error) {
-            console.log(error);
-            });
 
-        if(responseLogin == 'Update Password Sucess'){
-                props.navigation.replace('LogInScreen')
-        }
-        else{
-            Alert.alert('Wrong Input!', `${responseLogin}`,[
-                          {text:'Okay'}
-                      ]); 
-        }
+    if(data.isValidRePassword){
+        let userLogin ={userName: data.username, email: data.email, password: data.password}
+        let responseLogin = '' 
+        await ForgotPasswordRequest(userLogin)
+              .then(function (response) {
+                  responseLogin = response.data.message
+                  showFlash(response.data.message);
+              })
+              .catch(function (error) {
+              console.log(error);
+              });
+          if(responseLogin == 'Update Password Sucess'){
+                  props.navigation.replace('LogInScreen')
+          }
+          else{
+              Alert.alert('Wrong Input!', `${responseLogin}`,[
+                            {text:'Okay'}
+                        ]); 
+          }
+    }
+    else{
+        showFlash("password is not match");
+    }
   }
 
   // function untuk mengirimkan token ke email
   const handleSendTokenToEmail = async () =>{
     const length = 3;
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   
     let result = '';
     const charactersLength = characters.length;
     for ( let i = 0; i < length; i++ ) {
