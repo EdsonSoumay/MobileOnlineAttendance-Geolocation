@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Gap, Input} from '../components';
 import { backGroundColor, blackColor, fontFamilyMedium, fontSizeBig, mainBorder, placeholderColor, secondColor } from '../utils';
 import { useTheme } from 'react-native-paper';
@@ -14,8 +14,7 @@ const windowWidth = Dimensions.get('window').width * 0.777;
 
 const SignUpScreen = ({navigation}) => {
 const { showFlash, message, isVisible } = useMyContext();
-  
-const [data, setData] = React.useState({
+const [data, setData] = useState({
   username: '',
   password: '',
   rePassword: '',
@@ -192,7 +191,6 @@ const signUpHandle = async ()=>{
             icon = {data.securePasswordEntry? <HideIcon/>:<ShowIcon/>}
             onPressIcon={updateSecurePasswordEntry}
         />
-          
         </View>
         <Gap height={20} />
         <View style={{justifyContent: 'center'}}>

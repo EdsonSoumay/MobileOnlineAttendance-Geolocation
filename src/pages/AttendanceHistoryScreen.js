@@ -1,4 +1,4 @@
-import { StyleSheet, RefreshControl, Text, View,Dimensions ,ScrollView, BackHandler, Alert} from 'react-native'
+import { StyleSheet, RefreshControl, Text, View,Dimensions ,ScrollView } from 'react-native'
 import React,{useEffect, useState} from 'react'
 import { Gap, Button } from '../components'
 import { backGroundColor, fontSizeSmall, fontFamilyRegular, mainColor, fontFamilyMedium, fontFamilySemiBold, fontSizeBig, secondColor, blackColor } from '../utils'
@@ -46,7 +46,6 @@ const AttendanceHistoryScreen = (props) => {
     <View style={{width: windowWidth}}>
       <View style={{flexDirection:'column'}}>
         <Gap height={20}/>
-
           {/* Kotak Card */}
         <ScrollView 
          showsHorizontalScrollIndicator={false} horizontal={true}
@@ -108,7 +107,6 @@ const AttendanceHistoryScreen = (props) => {
             {
               History?
               History.map((e, i) =>{
-                console.log("user attendance:",e.userAttendance)
                 return(
                   <View key={i} style={{marginBottom: 20, backgroundColor:secondColor.color,borderWidth: 1, width:windowWidth, borderColor:`rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.30)` , flexDirection:'row', padding: 14, borderRadius: 10, alignItems:'center'}}>
                     <View>

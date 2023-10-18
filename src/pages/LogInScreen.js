@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import { StyleSheet, Text, View, Dimensions, ScrollView,  TouchableOpacity, Platform, StatusBar, Alert, BackHandler } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ScrollView,  TouchableOpacity, Alert } from 'react-native'
 import { Button, Gap, Input } from '../components'
-import { backGroundColor, blackColor, fontFamilyMedium, fontFamilyRegular, fontSizeBig, fontSizeExtraSmall, fontSizeSmall, mainBorder, placeholderColor, secondColor } from '../utils'
+import { backGroundColor, blackColor, fontFamilyMedium, fontFamilyRegular, fontSizeBig, fontSizeSmall, mainBorder, placeholderColor, secondColor } from '../utils'
 import LinearGradient from 'react-native-linear-gradient'
 import { mainColor } from '../utils'
 import { useTheme } from 'react-native-paper';
@@ -11,16 +11,14 @@ import { useMyContext } from '../Context';
 import LogoHeader from '../components/molecules/LogoHeader'
 import { LogInRequest } from '../request'
 
-const windowHeight = Dimensions.get('window').height;
+// const windowHeight = Dimensions.get('window').height;
 // const windowWidth = Dimensions.get('window').width * 0.833;
 const windowWidth = Dimensions.get('window').width * 0.777;
 
 const LogInScreen = (props) => {
-const { message, isVisible } = useMyContext();
-
-  const { colors } = useTheme();
-
-  const [data, setData] = useState({
+ const { message, isVisible } = useMyContext();
+ const { colors } = useTheme();
+ const [data, setData] = useState({
       username: '',
       password: '',
       check_textInputChange: false,
@@ -28,7 +26,6 @@ const { message, isVisible } = useMyContext();
       isValidUser: true,
       isValidPassword: true,
   });
-
   const [Loading, setLoading] = useState(false)
 
   const textInputChange = (val) => {
@@ -122,7 +119,6 @@ const { message, isVisible } = useMyContext();
                    <Text style={styles.flashMessage}>{message}</Text>
                 </View>
             )}
-       
        <Gap height={40}/>
        <LogoHeader/>
       <Gap height={30}/>

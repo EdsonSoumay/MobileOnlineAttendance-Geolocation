@@ -169,8 +169,7 @@ const AllAbsenScreen = () => {
               <Text style={styles.tableHeadText}>{header?.absenTimeString}</Text>
             </View>
           )
-        }
-        )
+        })
         :
         null
         }
@@ -230,7 +229,8 @@ const styles = StyleSheet.create({
   },
   tableHead: {
     flexDirection: 'row',
-    backgroundColor: '#3f51b5',
+    // backgroundColor: '#3f51b5',
+    backgroundColor:`rgba(${mainColor.r}, ${mainColor.g}, ${mainColor.b}, 0.9)`
     // width:1000
   },
   tableHeadCell: {
@@ -262,7 +262,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRightWidth: 1,
     borderRightColor:'#eee',
-    
   },
   tableCellText: {
     fontSize: 14,

@@ -9,6 +9,7 @@ import { HideIcon, ShowIcon } from '../assets/icon';
 import { useMyContext } from '../Context';
 import LogoHeader from '../components/molecules/LogoHeader';
 import { ForgotPasswordRequest, SendEmailRequest } from '../request';
+
 const windowWidth = Dimensions.get('window').width * 0.777;
 
 const ForgotPasswordScreen = (props) => {
@@ -80,7 +81,6 @@ const updateSecureTextEntryRePassword = () => {
 }
 
   const submitHandle = async ()=>{
-
     if(data.isValidRePassword){
         let userLogin ={userName: data.username, email: data.email, password: data.password}
         let responseLogin = '' 
@@ -181,7 +181,6 @@ const updateSecureTextEntryRePassword = () => {
 
 
 const tokenChange = (val) => {
-
     if(val.trim().length >=4){
         setData({
             ...data, 
@@ -202,7 +201,7 @@ const compareToken = () =>{
     if(Token == data.token){
         setButtonStatus('Submit')
     }else{
-        showFlash("token does'nt match")
+        showFlash("token is not match")
     }
 }
 
@@ -267,8 +266,7 @@ const compareToken = () =>{
                             />
                 </View>
             </>
-            :
-            null
+            :null
         }
         {
             ButtonStatus == 'Submit' ?
@@ -315,9 +313,7 @@ const compareToken = () =>{
                     <Text style={{color:placeholderColor.color}}>Password is not match</Text>
                 }
                 </View>
-            </>
-        :
-        null
+            </>:null
         }
         <Gap height={10} />
         <View

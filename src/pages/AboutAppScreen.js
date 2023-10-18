@@ -46,7 +46,6 @@ const AboutAppScreen = (props) => {
         </View>
         <Gap height={42}/>
         <ScrollView>
-
         <View style={{flexDirection:'row', alignItems:'center'}}>
           <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:blackColor.color}}>VOCSAbsension</Text>
             <Gap width={15}/>
