@@ -12,5 +12,3 @@ const LogoHeader = () => {
 }
 
 export default LogoHeader
-
-const styles = StyleSheet.create({})
