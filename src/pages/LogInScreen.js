@@ -94,6 +94,7 @@ const LogInScreen = (props) => {
                 userLogin.lastName = response.data.lastName !== "undefined" ? response.data.lastName : '-'
             })
             .catch(function (error) {
+                setLoading(false)
             console.log(error);
             });
 
@@ -176,6 +177,7 @@ const LogInScreen = (props) => {
                         loginHandle()
                         setLoading(true)       
                     }}
+                disabled={Loading}
                 name = 'Login' 
                 color={secondColor.color}
                 size = {fontSizeBig.fontSize} 

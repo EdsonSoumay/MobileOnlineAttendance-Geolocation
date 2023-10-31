@@ -377,18 +377,19 @@ const HomeScreen = (props) => {
         <View style={{alignItems:'center'}}>
         <View style={{width: windowWidth}}>
             <View>
-                <Text style={styles.textLeadInWorship}>Lead In Worship Today</Text>
+                {/* <Text style={styles.textLeadInWorship}>Lead In Worship Today</Text> */}
             </View>
             <Gap height={20}/>
-            <View style={styles.Container2}>
+            {/* <View style={styles.Container2}> */}
+            <View>
                 <View style={styles.containerLeadInWorship2}>
-                    <Text style={styles.textLeadInWorship2}>Devotion</Text>
-                    <Text style={styles.textLeadInWorship3}>-</Text>
+                    {/* <Text style={styles.textLeadInWorship2}>Devotion</Text> */}
+                    {/* <Text style={styles.textLeadInWorship3}>-</Text> */}
                 </View>
                 <Gap height={22}/>
                 <View style={styles.containerLeadInWorship2}>
-                    <Text style={styles.textLeadInWorship2}>MC</Text>
-                    <Text style={styles.textLeadInWorship3}>-</Text>
+                    {/* <Text style={styles.textLeadInWorship2}>MC</Text> */}
+                    {/* <Text style={styles.textLeadInWorship3}>-</Text> */}
                 </View>
             </View>
           </View>

@@ -92,15 +92,17 @@ export const UpdateUserAbsenceRequest = async (selectedItem, userName) =>{
 }
 
 
-export const SignUpRequest = async (newUser, showFlash,navigation ) =>{
+export const SignUpRequest = async (newUser, showFlash,navigation, setLoading ) =>{
   await request.post(`/registration`,newUser)
     .then(function (response) {
         showFlash(response.data.message)
+        setLoading(false)
         if(response.data.message == 'Registration Success'){
         return navigation.replace('LogInScreen')
         }
     })
     .catch(function (error) {
+      setLoading(false)
       showFlash(`${error.response.data.message}`);
     });
 }

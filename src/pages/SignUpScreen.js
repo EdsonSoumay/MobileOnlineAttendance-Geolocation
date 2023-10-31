@@ -27,6 +27,7 @@ const [data, setData] = useState({
   isValidRePassword: false
 });
 // const {signIn} = React.useContext(AuthContext)
+const [Loading, setLoading] = useState(false)
 
 const textInputUserNameChange = (val) => {
   if(val.trim().length >=4){
@@ -120,10 +121,12 @@ const handleValidUser =(val)=>{
 
 const signUpHandle = async ()=>{
   if(data.isValidRePassword === true){
+    setLoading(true)
     let newUser = {userName: data.username, password: data.password,  email : data.email}
-        SignUpRequest(newUser, showFlash, navigation)
+    SignUpRequest(newUser, showFlash, navigation, setLoading)
   }
   else{
+    setLoading(false)
     showFlash('Please Complete this registration')
   }
   return null;
@@ -235,6 +238,7 @@ const signUpHandle = async ()=>{
           end={{x: 1, y: 1}}>
           <Button
             name="Sign Up"
+            disabled={Loading}
             size={fontSizeBig.fontSize}
             color={secondColor.color}
             fontFamily={fontFamilyMedium.fontFamily}
@@ -242,6 +246,9 @@ const signUpHandle = async ()=>{
             onPress={()=>signUpHandle()}
           />
         </LinearGradient>
+      <View>
+            <Text style={{color: placeholderColor.color}}>{Loading == true?'Loading':null}</Text>
+        </View>
       </ScrollView>
       <Gap height={20}/>
     </View>

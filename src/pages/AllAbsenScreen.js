@@ -146,6 +146,7 @@ const AllAbsenScreen = () => {
           null
     }
     <Gap height={10}/>
+    <ScrollView>
     <ScrollView showsHorizontalScrollIndicator={true}  horizontal={true}
     refreshControl={<RefreshControl refreshing={refreshing} onRefresh={getAPI} />}
     >
@@ -214,6 +215,7 @@ const AllAbsenScreen = () => {
         }
       </View>
     </View>
+    </ScrollView>
     </ScrollView>
     </>
   );

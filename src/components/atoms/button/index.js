@@ -1,7 +1,7 @@
 import React from 'react'
 import {TouchableOpacity,Text,StyleSheet} from 'react-native'
 
-const Button = ({name,size,weight,color,fam, textAlign, styleContainer, onPress, ...rest})=>{
+const Button = ({name,size,weight,color,fam, textAlign, styleContainer, onPress, disabled, ...rest})=>{
   const style = StyleSheet.create({
     text:{
       color,
@@ -12,7 +12,7 @@ const Button = ({name,size,weight,color,fam, textAlign, styleContainer, onPress,
   })
 
   return(
-    <TouchableOpacity onPress={onPress} {...rest} style={styleContainer}>
+    <TouchableOpacity disabled={disabled !== undefined ? disabled : false} onPress={onPress} {...rest} style={styleContainer}>
       <Text style={style.text}>{name}</Text>
     </TouchableOpacity>
   )
