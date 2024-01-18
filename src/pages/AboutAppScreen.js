@@ -49,7 +49,7 @@ const AboutAppScreen = (props) => {
         <View style={{flexDirection:'row', alignItems:'center'}}>
           <Text style={{fontFamily:fontFamilyMedium.fontFamily, fontSize:fontSizeMedium.fontSize, color:blackColor.color}}>VOCSAbsension</Text>
             <Gap width={15}/>
-          <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize, color: placeholderColor.color}}>V 1.0.1</Text>
+          <Text style={{fontFamily:fontFamilyRegular.fontFamily, fontSize:fontSizeSmall.fontSize, color: placeholderColor.color}}>V 1.0.2</Text>
         </View>
         <Gap height={20}/>
         <View>
@@ -82,7 +82,7 @@ const AboutAppScreen = (props) => {
                 onChangeText={text => setMessage(text)}
                 // value={value}
                 value={40}
-                style={{padding: 10}}
+                style={{padding: 10, color:blackColor.color}}
               />
           </View>
           <Gap height={13}/>

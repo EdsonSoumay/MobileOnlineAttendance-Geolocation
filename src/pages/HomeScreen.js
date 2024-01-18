@@ -203,15 +203,25 @@ const HomeScreen = (props) => {
       const currentMonth = tempCurrentDate.getMonth() + 1; // Perhatikan bahwa indeks bulan dimulai dari 0 (Januari = 0).
       const currentDay = tempCurrentDate.getDate(); // get tanggal
       
+      // console.log("CurrentSemesterContext.semester:",CurrentSemesterContext.semester)
+      // console.log("currentMonth:",currentMonth)
+      // console.log("currentDay:",currentDay)
+
       if(CurrentSemesterContext.semester == 1 && (currentMonth >= 8 && currentMonth <= 12)){
         // console.log("if 1")
           return true;
       }
-      if(CurrentSemesterContext.semester == 2 && (currentMonth >= 1 && (currentMonth <= 5 && currentDay <= 15)) ){
+      if(CurrentSemesterContext.semester == 2 && (currentMonth >= 1 && currentMonth <= 5 )){
+        if(currentMonth == 5 && currentDay > 15 ){
+          return false;
+        }
         // console.log("if 2")
         return true;
       }
-      if(CurrentSemesterContext.semester == "summer" && ((currentMonth >= 5 && currentDay >= 15) && (currentMonth <= 7))){
+      if(CurrentSemesterContext.semester == "summer" && (currentMonth >= 5  && currentMonth <= 7)){
+        if(currentMonth == 5 && currentDay < 15 ){
+          return false;
+        }
         // console.log("if 3")
         return true;
       }
@@ -224,6 +234,9 @@ const HomeScreen = (props) => {
     // Memeriksa apakah tanggal saat ini sesuai dengan semester
     const isCurrentDateInSemesterResult = isCurrentDateInSemester(); // Hasilnya akan true jika tanggal saat ini sesuai dengan salah satu semester yang Anda tentukan.
     //end 
+
+    // console.log("isCurrentDateInSemesterResult:",isCurrentDateInSemesterResult)
+    // console.log("isCurrentDateInSchoolYear:",isCurrentDateInSchoolYear)
 
   return (
     <View style={styles.container}>

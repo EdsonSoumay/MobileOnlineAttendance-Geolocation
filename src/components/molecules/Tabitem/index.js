@@ -6,7 +6,7 @@ import { HomeActive, HomeInActive, HistoryInActive, HistoryActive } from '../../
 
 export const MainBottomTabItem = ({isFocused, onLongPress, onPress, label}) => {
 
-  console.log("label:", label);
+  // console.log("label:", label);
     const Icon = () => {
         if(label === "HomeScreen") {
             return isFocused ? <HomeActive/> : <HomeInActive/>
